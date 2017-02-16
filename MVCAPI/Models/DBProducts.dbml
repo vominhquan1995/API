@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_API" Class="DBProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MINHQUAN\SQLEXPRESS;Initial Catalog=DB_API;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_APIConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Catelories" Member="Catelories">
+    <Type Name="Catelory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Catelories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Catelory_Product" Member="Products" ThisKey="Id" OtherKey="CatId" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Descriptionpd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CatId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Catelory_Product" Member="Catelory" ThisKey="CatId" OtherKey="Id" Type="Catelory" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
